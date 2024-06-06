@@ -32,11 +32,10 @@ function MenuSection() {
                     </FormItem>
                 )}>
 
-
             </FormField>
             <Button type={'button'}
                     onClick={()=>append({ nombre: "", noTarjeta: "", fechaVencimiento: "", cvc: ""})}>
-                Agregar al menú
+                Agregar tarjeta
             </Button>
 
         </div>

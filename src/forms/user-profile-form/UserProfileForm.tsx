@@ -14,7 +14,7 @@ const formSchema = z.object({
             nombre: z.string().min(1, 'El nombre es requerido'),
             noTarjeta: z.coerce.number().min(16, 'El número de tarjeta es requerido'),
             fechaVencimiento: z.coerce.number().min(4, 'La fecha de vencimiento es requerida'),
-            cvc: z.coerce.number().max(4 , 'El cvc es de máximo 3 caracteres'),
+            cvc: z.coerce.number().min(4 , 'El cvc es de minimo 3 caracteres'),
         })
     ),
 });
@@ -24,7 +24,7 @@ type Props = {
     isLoading: boolean;
 }
 
-function UserProfileForm({onSave, isLoading}: Readonly<Props>) {
+function UserProfileForm({onSave, isLoading}: Props) {
 
     const form = useForm<UserFormData>({
         resolver: zodResolver(formSchema),
@@ -61,7 +61,7 @@ function UserProfileForm({onSave, isLoading}: Readonly<Props>) {
     return (
         <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)}
-            className={'space-y-2 bg-gray-800 rounded-lg md:p-10'}>
+            className={'space-y-2 border-gray-100 rounded-lg md:p-10'}>
                 <div>
                     <h2 className={"font-bold text-xl mb-2"}>
                         Información del perfil

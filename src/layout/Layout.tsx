@@ -10,7 +10,7 @@ function Layout({children}: Readonly<Props>) {
     return (
         <div className={'flex flex-col min-h-screen'}>
             <Navbar/>
-            <div className={'container mx-auto flex-1 py-10'}>
+            <div className={'flex flex-col justify-center items-center '}>
                 {children}
             </div>
             <Footer/>
