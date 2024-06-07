@@ -4,8 +4,13 @@ import Home from "@/pages/Home.tsx";
 import AuthCallBackPage from "@/pages/AuthCallBackPage.tsx";
 import UserProfileForm from "@/forms/user-profile-form/UserProfileForm.tsx";
 import Categorias from "@/components/Categorias.tsx";
+import ProductForm from "./forms/user-profile-form/Product/ProductForm";
+import { useCreateProduct } from "./api/ProductApi";
+
+
 
 const AppRoutes = () => {
+    const { createProduct, isLoading } = useCreateProduct();
     return (
         <Routes>
             <Route path={'/'} element={
@@ -18,8 +23,13 @@ const AppRoutes = () => {
                 <Layout>
                     <Categorias/>
                 </Layout>
-            }
-            />
+            }/>
+
+            <Route path={'/ProductForm'} element = {
+                <Layout>
+                    <ProductForm onSave={createProduct} isLoading={isLoading}/>
+                </Layout>
+            }/>
 
 
             <Route path={'/auth-callback'} element={ <AuthCallBackPage/> }/>

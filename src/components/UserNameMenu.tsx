@@ -23,7 +23,13 @@ function UserNameMenu() {
                 {user?.email}
             </DropdownMenuTrigger>
             <DropdownMenuContent>
-
+                <DropdownMenuItem>
+                        <Link to={'/productform'}
+                                className={'font-bold hover:text-blue-500'}>
+                            Agregar productos
+                        </Link>
+                </DropdownMenuItem>
+                <Separator/>
                 <DropdownMenuItem>
                     <Link to={'/user-profile'}
                             className={'font-bold hover:text-blue-500'}>
@@ -39,6 +45,7 @@ function UserNameMenu() {
                         Salir
                     </Button>
                 </DropdownMenuItem>
+                
             </DropdownMenuContent>
         </DropdownMenu>
     );

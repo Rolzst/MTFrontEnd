@@ -11,3 +11,9 @@ export type User = {
     email: string;
     tarjetas: Tarjetas[];
 }
+
+export type Product = {
+    nombre: string;
+    descripcion: string;
+    precio: number;
+}
